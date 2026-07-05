@@ -1,92 +1,150 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. SELECTORES DE ELEMENTOS
     const productForm = document.getElementById('product-form');
     const listaProductos = document.getElementById('lista-productos');
     const totalRegistros = document.getElementById('total-registros');
-    const alertContainer = document.getElementById('alert-container');
-    
+
+    // Campos del Formulario
+    const productName = document.getElementById('product-name');
+    const productCategory = document.getElementById('product-category');
+    const productDesc = document.getElementById('product-desc');
+
+    // Contador global dinámico
     let contadorProductos = 0;
 
-    if (productForm) {
-        productForm.addEventListener('submit', (evento) => {
-            evento.preventDefault();
+    // 2. FUNCIONES REUTILIZABLES DE VALIDACIÓN (Bordes y mensajes de Bootstrap)
+    const aplicarError = (campo) => {
+        campo.classList.remove('is-valid');
+        campo.classList.add('is-invalid');
+    };
 
-            const nombre = document.getElementById('prod-nombre').value.trim();
-            const categoria = document.getElementById('prod-categoria').value;
-            const descripcion = document.getElementById('prod-descripcion').value.trim();
+    const aplicarExito = (campo) => {
+        campo.classList.remove('is-invalid');
+        campo.classList.add('is-valid');
+    };
 
-            if (nombre === '' || categoria === '' || descripcion === '') {
-                mostrarAlerta('Por favor, complete todos los campos del formulario.', 'danger');
-                return;
-            }
+    // Validar Nombre (Mínimo 4 caracteres)
+    const validarNombre = () => {
+        const valor = productName.value.trim();
+        if (valor === '' || valor.length < 4) {
+            aplicarError(productName);
+            return false;
+        }
+        aplicarExito(productName);
+        return true;
+    };
 
-            mostrarAlerta('¡Producto registrado con éxito!', 'success');
+    // Validar Categoría
+    const validarCategoria = () => {
+        const valor = productCategory.value;
+        if (valor === '' || valor === null) {
+            aplicarError(productCategory);
+            return false;
+        }
+        aplicarExito(productCategory);
+        return true;
+    };
 
-            // Crear columnas adaptables (1 columna en celular, 2 en tablets/PC)
-            const colDiv = document.createElement('div');
-            colDiv.className = 'col-12 col-md-6';
+    // Validar Descripción (Mínimo 15 caracteres)
+    const validarDescripcion = () => {
+        const valor = productDesc.value.trim();
+        if (valor === '' || valor.length < 15) {
+            aplicarError(productDesc);
+            return false;
+        }
+        aplicarExito(productDesc);
+        return true;
+    };
 
-            const cardDiv = document.createElement('div');
-            cardDiv.className = 'card h-100 shadow-sm border-light';
+    // 3. ASIGNACIÓN DE EVENTOS EN TIEMPO REAL (addEventListener)
+    [productName, productCategory, productDesc].forEach(campo => {
+        let funcionValidar;
+        if (campo === productName) funcionValidar = validarNombre;
+        if (campo === productCategory) funcionValidar = validarCategoria;
+        if (campo === productDesc) funcionValidar = validarDescripcion;
 
-            // Usar 'div' estándar para el cuerpo de la tarjeta de Bootstrap
-            const cardBody = document.createElement('div');
-            cardBody.className = 'card-body p-3';
+        campo.addEventListener('input', funcionValidar);
+        campo.addEventListener('blur', funcionValidar);
+    });
 
-            const cardTitle = document.createElement('h5');
-            cardTitle.className = 'card-title h6 text-uppercase fw-bold text-dark mb-1';
-            cardTitle.textContent = nombre;
+    // 4. GESTIÓN DINÁMICA DE REGISTROS (Crear, Mostrar, Contar y Eliminar)
+    const actualizarContador = () => {
+        totalRegistros.textContent = contadorProductos;
+    };
 
-            const cardBadge = document.createElement('span');
-            cardBadge.className = 'badge bg-secondary mb-2 d-inline-block';
-            cardBadge.textContent = categoria;
+    const mostrarMensajeAlerta = (claseBootstrap, texto) => {
+        // Eliminar alertas viejas antes de poner una nueva
+        const alertaVieja = productForm.querySelector('.alert');
+        if (alertaVieja) alertaVieja.remove();
 
-            const cardText = document.createElement('p');
-            cardText.className = 'card-text small text-muted mb-3';
-            cardText.textContent = descripcion;
-
-            const deleteBtn = document.createElement('button');
-            deleteBtn.className = 'btn btn-outline-danger btn-sm w-100';
-            deleteBtn.textContent = 'Eliminar Registro';
-
-            deleteBtn.addEventListener('click', () => {
-                colDiv.remove();
-                contadorProductos--;
-                actualizarContador();
-                mostrarAlerta('Producto eliminado del inventario.', 'warning');
-            });
-
-            cardBody.appendChild(cardTitle);
-            cardBody.appendChild(cardBadge);
-            cardBody.appendChild(cardText);
-            cardBody.appendChild(deleteBtn);
-            cardDiv.appendChild(cardBody);
-            colDiv.appendChild(cardDiv);
-            
-            listaProductos.appendChild(colDiv);
-
-            contadorProductos++;
-            actualizarContador();
-            productForm.reset();
-        });
-    }
-
-    function actualizarContador() {
-        totalRegistros.textContent = `Total: ${contadorProductos}`;
-    }
-
-    function mostrarAlerta(mensaje, tipo) {
-        alertContainer.innerHTML = '';
         const alerta = document.createElement('div');
-        alerta.className = `alert alert-${tipo} alert-dismissible fade show p-2 small mb-3`;
-        alerta.setAttribute('role', 'alert');
-        alerta.innerHTML = `
-            ${mensaje}
-            <button type="button" class="btn-close p-2" data-bs-dismiss="alert" aria-label="Close"></button>
-        `;
-        alertContainer.appendChild(alerta);
+        alerta.className = `alert ${claseBootstrap} mt-3 text-center fw-bold`;
+        alerta.textContent = texto;
+        productForm.appendChild(alerta);
 
-        setTimeout(() => {
-            alerta.remove();
-        }, 4000);
-    }
+        // Se borra automáticamente después de 3 segundos
+        setTimeout(() => alerta.remove(), 3000);
+    };
+
+    const agregarProductoALista = (nombre, categoria, descripcion) => {
+        contadorProductos++;
+        actualizarContador();
+
+        // Crear columna contenedora adaptable
+        const col = document.createElement('div');
+        col.className = 'col-12 mb-2 item-producto';
+        
+        // Estructura interna de la tarjeta del producto
+        col.innerHTML = `
+            <div class="card bg-secondary bg-opacity-10 border-start border-3 border-danger shadow-sm">
+                <div class="card-body p-3 d-flex justify-content-between align-items-center">
+                    <div class="text-truncate me-2">
+                        <span class="badge bg-danger mb-1">${categoria}</span>
+                        <h6 class="card-title mb-1 text-dark text-truncate fw-bold">${nombre}</h6>
+                        <p class="card-text text-muted small mb-0 text-truncate" style="max-width: 250px;">${descripcion}</p>
+                    </div>
+                    <button class="btn btn-sm btn-outline-danger btn-eliminar-registro" title="Eliminar Producto">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+
+        // ESCUCHAR EL EVENTO CLICK DEL BOTÓN ELIMINAR DINÁMICO
+        col.querySelector('.btn-eliminar-registro').addEventListener('click', () => {
+            col.remove();
+            contadorProductos--;
+            actualizarContador();
+        });
+
+        listaProductos.appendChild(col);
+    };
+
+    // 5. MANEJO DEL EVENTO SUBMIT DEL FORMULARIO
+    productForm.addEventListener('submit', (evento) => {
+        evento.preventDefault(); // Evita recarga de página
+
+        // Obliga a validar todo antes de registrar
+        const esNombreValido = validarNombre();
+        const esCategoriaValida = validarCategoria();
+        const esDescripcionValida = validarDescripcion();
+
+        // PERMITE REGISTRAR ÚNICAMENTE CUANDO TODAS SEAN CORRECTAS
+        if (esNombreValido && esCategoriaValida && esDescripcionValida) {
+            
+            // Llama a la función de creación
+            agregarProductoALista(productName.value.trim(), productCategory.value, productDesc.value.trim());
+
+            // Muestra mensaje de Éxito global (alert-success)
+            mostrarMensajeAlerta('alert-success', '¡Producto guardado exitosamente en el inventario!');
+
+            // Limpiar formulario y resetear estados verdes de Bootstrap
+            productForm.reset();
+            [productName, productCategory, productDesc].forEach(campo => campo.classList.remove('is-valid'));
+
+        } else {
+            // Muestra mensaje de Error global (alert-danger)
+            mostrarMensajeAlerta('alert-danger', 'Error: Corrige los campos vacíos o incorrectos marcados en rojo.');
+        }
+    });
 });
