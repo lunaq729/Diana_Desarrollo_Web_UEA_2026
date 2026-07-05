@@ -1,171 +1,290 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deber Semana 4 - Diana Menéndez</title>
+    <title>Barbería Hernández - StyleCare</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        body { background-color: #000; color: #fff; }
+        .btn-personalizado { background-color: #ff6600; color: white; border: none; }
+        .btn-personalizado:hover { background-color: #e65c00; color: white; }
+        .btn-tiktok-visible { border: 1px solid #fff; color: #fff; }
+        .btn-tiktok-visible:hover { background-color: #ff0050; color: white; }
+        .section-title { color: #00ffc8; }
+        /* Estilos para reforzar el color verde de Bootstrap cuando es válido */
+        .was-validated .form-control:valid, .form-control.is-valid {
+            border-color: #198754 !important;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") !important;
+        }
+    </style>
 </head>
-<body>
+<body class="text-center">
 
-    <header class="main-header text-center py-4 shadow-sm">
-        <h1 class="titulo-principal">
-            Boutique StephyStore
-        </h1>
-        <p class="lead mb-1">Sistema de Gestión de Ventas (Clientes, Productos y Facturación)</p>
-        <small class="opacity-75">Desarrollado por Diana Menéndez</small>
+    <header style="background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033'); background-size: cover; background-position: center; padding: 80px; text-align: center;">
+        <div style="background-color: rgba(0,0,0,0.6); padding:20px; border-radius:10px; display: inline-block;">
+            <h1 style="color:rgb(25, 46, 163); text-shadow:3px 3px 8px black;">Barbería Hernández</h1>
+            <h2 style="color:#ffe600;">StyleCare - Estilo moderno para cabello y cuidado facial</h2>
+        </div>
     </header>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mx-3 rounded">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">StephyStore</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container justify-content-center">
+            <a class="navbar-brand text-warning fw-bold mx-auto mx-lg-0" href="#">StyleCare</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="#inicio">Inicio</a>
-                    <a class="nav-link" href="#quienes-somos">Quiénes Somos</a>
-                    <a class="nav-link" href="#gestion-productos">Inventario</a>
-                    <a class="nav-link" href="#productos">Productos</a>
-                    <a class="nav-link" href="#contacto">Contacto</a>
-                </div>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#quienes">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#precios">Precios</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#seccion-reservas">Reservas</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#contacto">Contacto</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container-fluid px-4 my-4">
-        <div class="row g-4">
-            
-            <div class="col-lg-8">
-                
-                <section id="gestion-productos" class="mb-4 p-4 bg-white border-top border-4 border-danger rounded shadow-sm">
-                    <h2>Inicio</h2>
-                    <p class="text-muted">Este sistema web automatiza el control de inventarios, la facturación electrónica y la gestión de clientes de la boutique, optimizando los tiempos de atención y reduciendo errores manuales.</p>
-                    <a href="#productos" class="btn btn-danger btn-sm px-4">Explorar Servicios</a>
-                </section>
-
-                <section id="quienes-somos" class="mb-4 p-3 bg-white border rounded shadow-sm">
-                    <h2>Quiénes Somos</h2>
-                    <article class="row align-items-center g-3">
-                        <div class="col-md-7 text-secondary texto-justificado">
-                            <p class="mb-0">Boutique StephyStore es un emprendimiento dedicado a ofrecer las mejores tendencias en ropa casual para damas, caballeros y niños. Con el crecimiento comercial del negocio y la apertura de sucursales, surgió la necesidad de implementar una solución tecnológica que reemplace los registros manuales. Este sistema de gestión web centraliza todas las operaciones en una sola plataforma, permitiendo actualizar el stock en tiempo real y agilizar los procesos de cobro. Nuestro objetivo es mejorar la eficiencia administrativa, garantizar un control financiero seguro y brindar una experiencia de compra rápida y moderna a cada uno de nuestros clientes.</p>
-                        </div>
-                        <div class="col-md-5 text-center">
-                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500" alt="Boutique" class="img-fluid rounded shadow-sm">
-                        </div>
-                    </article>
-                </section>
-
-                <section id="gestion-productos" class="mb-4 p-3 bg-white border rounded shadow-sm">
-                    <h2>Gestión de Inventario</h2>
-                    <p class="text-muted small">Agregue nuevos productos al sistema en tiempo real.</p>
-                    
-                    <div id="alert-container"></div>
-
-                    <form id="product-form" class="p-3 border rounded mb-4 bg-light">
-                        <div class="row g-2 mb-2">
-                            <div class="col-sm-6">
-                                <label for="prod-nombre" class="form-label small mb-1 fw-bold">Nombre del Producto</label>
-                                <input type="text" id="prod-nombre" class="form-control form-control-sm" placeholder="Ej. Chaqueta de Cuero">
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="prod-categoria" class="form-label small mb-1 fw-bold">Categoría o Tipo</label>
-                                <select id="prod-categoria" class="form-select form-control-sm small text-muted">
-                                    <option value="">Seleccione una categoría...</option>
-                                    <option value="Damas">Damas</option>
-                                    <option value="Caballeros">Caballeros</option>
-                                    <option value="Niños">Niños</option>
-                                    <option value="Accesorios">Accesorios</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="prod-descripcion" class="form-label small mb-1 fw-bold">Descripción</label>
-                            <textarea id="prod-descripcion" class="form-control form-control-sm" rows="2" placeholder="Detalles de la prenda, tallas, colores..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-dark btn-sm w-100">Registrar Producto</button>
-                    </form>
-                    
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h3 class="h5 mb-0">Productos Registrados</h3>
-                        <span class="badge bg-danger p-2" id="total-registros">Total: 0</span>
-                    </div>
-                    
-                    <div id="lista-productos" class="row g-3">
-                        </div>
-                </section>
-
-                <section id="productos" class="mb-4 p-3 bg-white border rounded shadow-sm">
-                    <h2 class="mb-3">Productos y Servicios</h2>
-
-                    <ul class="mb-4">
-                        <li>Facturación electrónica integrada.</li>
-                        <li>Control de stock nacional e importado.</li>
-                        <li>Base de datos y gestión de sucursales.</li>
-                        <li>Reportes estadísticos de ventas.</li>
-                    </ul>
-
-                    <h3 class="h5 mb-3">Galería de Nuevas Tendencias</h3>
-                    <div class="row g-2 text-center">
-                        <div class="col-6 col-sm-4 col-md"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400" alt="Moda 1" class="img-fluid rounded shadow-sm"></div>
-                        <div class="col-6 col-sm-4 col-md"><img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400" alt="Moda 2" class="img-fluid rounded shadow-sm"></div>
-                        <div class="col-6 col-sm-4 col-md"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Moda 3" class="img-fluid rounded shadow-sm"></div>
-                        <div class="col-6 col-sm-4 col-md"><img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=400" alt="Moda 4" class="img-fluid rounded shadow-sm"></div>
-                        <div class="col-6 col-sm-4 col-md"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400" alt="Moda 5" class="img-fluid rounded shadow-sm"></div>
-                    </div>
-                </section>
-
-                <section id="contacto" class="mb-4 p-3 bg-white border rounded shadow-sm">
-                    <h2>Contacto</h2>
-                    <div class="bg-light p-3 border rounded mb-3 small">
-                        <p class="mb-1"><strong>Teléfono:</strong> 098 532 2000 / 098 540 1891</p>
-                        <p class="mb-1"><strong>Dirección:</strong> La Concordia, Calles Martinica y Loja</p>
-                        <p class="mb-2"><strong>Sucursal:</strong> Quinindé, Provincia de Esmeraldas</p>
-                        <p class="mb-0"><strong>Redes:</strong> 
-                            <a href="https://www.facebook.com/stephystore.ec/" target="_blank" class="btn btn-primary btn-sm py-0">Facebook</a>
-                            <a href="https://www.instagram.com/stephystore/" target="_blank" class="btn btn-danger btn-sm py-0">Instagram</a>
-                            <a href="https://www.tictok.com/stephystore.ec/" target="_blank" class="btn btn-dark btn-sm py-0">TikTok</a>
-                        </p>
-                    </div>
-
-                    <form class="p-3 border rounded mb-4 bg-light">
-                        <div class="row g-2">
-                            <div class="col-sm-6"><input type="text" class="form-control form-control-sm" placeholder="Nombre" required></div>
-                            <div class="col-sm-6"><input type="email" class="form-control form-control-sm" placeholder="Correo" required></div>
-                        </div>
-                        <div class="my-2"><input type="text" class="form-control form-control-sm" placeholder="Asunto" required></div>
-                        <div class="mb-2"><textarea class="form-control form-control-sm" rows="2" placeholder="Mensaje..." required></textarea></div>
-                        <button type="submit" class="btn btn-danger btn-sm w-100">Enviar Mensaje</button>
-                    </form>
-                    
-                    <h3 class="h5">Colecciones de Moda y Tendencias</h3>
-                    <div class="row g-2">
-                        <div class="col-6"><iframe width="100%" height="320" src="https://www.youtube.com/embed/j6Vxnp22UOE" class="video-sin-borde" allowfullscreen></iframe></div>
-                        <div class="col-6"><iframe width="100%" height="320" src="https://www.youtube.com/embed/FY7PlLwV3co" class="video-sin-borde" allowfullscreen></iframe></div>
-                    </div>
-                </section>
+    <main class="container my-5">
+        <section id="inicio" class="py-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="section-title mb-3">Inicio</h2>
+                    <p class="lead fs-5 text-white-50">Bienvenido a Barbería Hernández, un lugar moderno donde puedes mejorar tu estilo, cuidar tu cabello y tu piel con servicios profesionales, rápidos y de calidad.</p>
+                    <a href="#seccion-reservas" class="btn btn-personalizado m-2 p-2 px-3 text-decoration-none rounded d-inline-block fw-bold">Reserva tu Turno</a>
+                </div>
             </div>
+        </section>
 
-            <aside class="col-lg-4 p-3 mb-4 align-self-start border rounded shadow-sm bg-white">
-                <h4 class="h5">Información Complementaria</h4>
-                <hr>
-                <p class="small"><strong>Horarios:</strong> Atención 24/7 digital con envíos nacionales.</p>
-                <p class="small"><strong>Promociones:</strong> 10% de descuento automático en tu primera compra.</p>
-                <p class="small mb-0"><strong>Relevante:</strong> Ropa casual e importada con asesoría por WhatsApp.</p>
-            </aside>
+        <hr class="border-secondary my-5">
 
-        </div>
+        <section id="quienes" class="py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="section-title mb-4">Quiénes Somos</h2>
+                    <p>Barbería Hernández es un emprendimiento dedicado al cuidado integral de la imagen personal mediante servicios profesionales de barbería y cuidado facial.</p>
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500" alt="Barbería" class="img-fluid rounded shadow-lg my-3" style="max-width: 500px;">
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="py-5">
+            <h2 class="section-title mb-4">Servicios y Productos</h2>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4"><div class="card p-3 bg-dark border-secondary text-white"><h3>Barba Profesional</h3><p>Afeitado y diseño.</p></div></div>
+                <div class="col-md-4"><div class="card p-3 bg-dark border-secondary text-white"><h3>Estética Facial</h3><p>Limpieza y cuidado.</p></div></div>
+            </div>
+        </section>
+
+        <hr class="border-secondary my-5">
+        
+        <section class="py-3">
+            <h2 class="mb-4" style="color:#0088ff;">Conoce Nuestro Trabajo</h2>
+            <div class="ratio ratio-16x9 mx-auto" style="max-width: 560px;">
+                <iframe src="https://www.youtube.com/embed/QdoTOumGqcM?start=13" title="Video Barbería Hernández" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="precios" class="py-5">
+            <h2 class="section-title mb-4">Lista de Precios</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <ul class="list-group list-group-flush bg-dark">
+                        <li class="list-group-item bg-dark text-white">Corte moderno - $5.00</li>
+                        <li class="list-group-item bg-dark text-white">Afeitado profesional - $4.00</li>
+                        <li class="list-group-item bg-dark text-white">Limpieza facial - $8.00</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="container my-5 py-5" id="seccion-reservas">
+            <h2 class="section-title mb-4">Realizar Reserva</h2>
+            <form id="form-reserva" class="row g-3 text-start justify-content-center" novalidate>
+                
+                <div class="col-md-6">
+                    <label for="nombre" class="form-label text-white">Nombre Completo</label>
+                    <input type="text" class="form-control bg-dark text-white border-secondary" id="nombre" placeholder="Tu Nombre" required>
+                    <div id="error-nombre" class="invalid-feedback">El nombre debe tener al menos 3 caracteres.</div>
+                    <div class="valid-feedback">¡Nombre válido!</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="correo" class="form-label text-white">Correo Electrónico</label>
+                    <input type="email" class="form-control bg-dark text-white border-secondary" id="correo" placeholder="ejemplo@correo.com" required>
+                    <div id="error-correo" class="invalid-feedback">Por favor introduce un correo válido (debe incluir @ y un dominio).</div>
+                    <div class="valid-feedback">¡Correo correcto!</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="password" class="form-label text-white">Contraseña de Reserva</label>
+                    <input type="password" class="form-control bg-dark text-white border-secondary" id="password" placeholder="Mínimo 6 caracteres" required>
+                    <div id="error-password" class="invalid-feedback">La contraseña debe tener al menos 6 caracteres.</div>
+                    <div class="valid-feedback">¡Contraseña segura!</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="categoria" class="form-label text-white">Servicio</label>
+                    <select class="form-select bg-dark text-white border-secondary" id="categoria" required>
+                        <option value="">Seleccione categoría...</option>
+                        <option value="Corte">Corte - $5.00</option>
+                        <option value="Afeitado">Afeitado - $4.00</option>
+                        <option value="Limpieza">Limpieza Facial - $8.00</option>
+                    </select>
+                    <div id="error-categoria" class="invalid-feedback">Por favor selecciona un servicio.</div>
+                    <div class="valid-feedback">¡Servicio seleccionado!</div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="descripcion" class="form-label text-white">Detalles o Preferencias</label>
+                    <textarea class="form-control bg-dark text-white border-secondary" id="descripcion" rows="2" placeholder="Ej: Cabello corto a los lados, barba delineada..." required></textarea>
+                    <div id="error-descripcion" class="invalid-feedback">Por favor ingresa una breve descripción.</div>
+                    <div class="valid-feedback">¡Descripción registrada!</div>
+                </div>
+
+                <div class="col-md-4 text-center mt-4">
+                    <button type="submit" class="btn btn-personalizado w-100 fw-bold p-2">Registrar Turno</button>
+                </div>
+            </form>
+
+            <div class="mt-5 text-center">
+                <h5>Total registros: <span id="contador" class="badge bg-secondary">0</span></h5>
+                <div id="lista-reservas" class="row mt-3 justify-content-center"></div>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-5">
+            <h2 class="section-title mb-4">Contacto</h2>
+            <p>📧 veronicaruiz393@gmail.com | 📞 09984039173</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="https://www.facebook.com/p/El-Dsombrero-Classic-Line-61553965016441/" target="_blank" class="btn btn-outline-info"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="https://www.instagram.com/p/DRTTd3wjVl-/?igsh=ZWVsZXpoNzF1bHRl" target="_blank" class="btn btn-outline-danger"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.tiktok.com/@hernandezbarberia19" target="_blank" class="btn btn-tiktok-visible"><i class="fab fa-tiktok"></i> TikTok</a>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
-        <p class="mb-0 small">Estudiante: Diana Menéndez | Asignatura: Desarrollo Web | Año: 2026</p>
+    <footer class="text-center p-4 text-white" style="background-color:#4b0082;">
+        <p class="fw-bold">Desarrollado por Diana Menendez y Verónica Romero</p>
+        <p class="small">Copyright © 2026 Barbería Hernández | Todos los derechos reservados.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script src="script.js"></script>
+
+    <script>
+        document.getElementById('form-reserva').addEventListener('submit', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const nombre = document.getElementById('nombre');
+            const correo = document.getElementById('correo');
+            const password = document.getElementById('password');
+            const categoria = document.getElementById('categoria');
+            const descripcion = document.getElementById('descripcion');
+
+            let formValido = true;
+
+            // Validación Nombre (mínimo 3 letras)
+            if (nombre.value.trim().length < 3) {
+                nombre.classList.add('is-invalid');
+                nombre.classList.remove('is-valid');
+                formValido = false;
+            } else {
+                nombre.classList.remove('is-invalid');
+                nombre.classList.add('is-valid');
+            }
+
+            // Validación Correo (Debe ser un email válido e incluir @)
+            const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!regexCorreo.test(correo.value.trim())) {
+                correo.classList.add('is-invalid');
+                correo.classList.remove('is-valid');
+                formValido = false;
+            } else {
+                correo.classList.remove('is-invalid');
+                correo.classList.add('is-valid');
+            }
+
+            // Validación Contraseña (mínimo 6 caracteres)
+            if (password.value.length < 6) {
+                password.classList.add('is-invalid');
+                password.classList.remove('is-valid');
+                formValido = false;
+            } else {
+                password.classList.remove('is-invalid');
+                password.classList.add('is-valid');
+            }
+
+            // Validación Categoría
+            if (categoria.value === "") {
+                categoria.classList.add('is-invalid');
+                categoria.classList.remove('is-valid');
+                formValido = false;
+            } else {
+                categoria.classList.remove('is-invalid');
+                categoria.classList.add('is-valid');
+            }
+
+            // Validación Descripción
+            if (descripcion.value.trim() === "") {
+                descripcion.classList.add('is-invalid');
+                descripcion.classList.remove('is-valid');
+                formValido = false;
+            } else {
+                descripcion.classList.remove('is-invalid');
+                descripcion.classList.add('is-valid');
+            }
+
+            // Si pasa todo, agrega la tarjeta y limpia
+            if (formValido) {
+                const lista = document.getElementById('lista-reservas');
+                const contador = document.getElementById('contador');
+                
+                // Crear nueva tarjeta visual para la reserva
+                const nuevaCard = document.createElement('div');
+                nuevaCard.className = 'col-md-4 mt-3';
+                nuevaCard.innerHTML = `
+                    <div class="card bg-dark border-success text-white text-start p-3 shadow">
+                        <h5 class="text-success"><i class="fas fa-check-circle"></i> ${nombre.value}</h5>
+                        <p class="mb-1"><strong>Servicio:</strong> ${categoria.value}</p>
+                        <p class="mb-1"><strong>Email:</strong> ${correo.value}</p>
+                        <p class="small text-white-50">${descripcion.value}</p>
+                    </div>
+                `;
+                
+                lista.appendChild(nuevaCard);
+                
+                // Actualizar contador de reservas
+                contador.textContent = lista.children.length;
+
+                // Resetear formulario y remover clases verde/rojo
+                this.reset();
+                nombre.classList.remove('is-valid');
+                correo.classList.remove('is-valid');
+                password.classList.remove('is-valid');
+                categoria.classList.remove('is-valid');
+                descripcion.classList.remove('is-valid');
+                
+                alert("¡Reserva añadida con éxito!");
+            }
+        });
+
+        // Eventos opcionales para que cambie en tiempo real mientras el cliente escribe
+        document.getElementById('correo').addEventListener('input', function() {
+            const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (regexCorreo.test(this.value.trim())) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else {
+                this.classList.remove('is-valid');
+                this.classList.add('is-invalid');
+            }
+        });
+    </script>
 </body>
 </html>
