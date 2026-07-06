@@ -1,230 +1,26 @@
-/* ==========================================================================
-   ESTILOS PERSONALIZADOS - BOUTIQUE STEPHYSTORE
-   ========================================================================== */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #111; color: rgb(255, 255, 255); margin: 0; }
 
-/* Importación de una tipografía elegante para títulos (Playfair Display) y moderna para textos (Poppins) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap');
-
-:root {
-    --color-primario: #2c2c2c;       /* Negro suave sofisticado */
-    --color-secundario: #b33951;     /* Tono vino/rosa viejo elegante */
-    --color-acento: #e0b0b8;         /* Rosa pastel sutil */
-    --color-fondo: #f9f6f0;          /* Blanco marfil/crema muy suave para el fondo general */
-    --color-tarjeta: #ffffff;        /* Blanco puro para las secciones */
+.header-banner {
+    background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033');
+    background-size: cover;
+    background-position: center;
+    padding: 80px;
+    text-align: center;
 }
 
-/* Fondo general y fuentes */
-body {
-    background-color: var(--color-fondo);
-    font-family: 'Poppins', sans-serif;
-    color: #4a4a4a;
-    transition: all 0.3s ease;
-}
+.header-overlay { background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px; }
 
-/* Justificar el texto que tenga la clase específica */
-.texto-justificado {
-    text-align: justify;
-}
+.titulo-barberia { font-size: 50px; color: rgb(25, 46, 163); text-shadow: 3px 3px 8px black; }
 
-/* ==========================================================================
-   HEADER (Encabezado principal)
-   ========================================================================== */
-header {
-    background: linear-gradient(135deg, var(--color-primario) 0%, #1a1a1a 100%);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+.subtitulo-barberia { color: #ffe600; }
 
-header .titulo-principal {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    letter-spacing: 2px;
-    font-weight: 600;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
+.menu-navegacion { background-color: #222; padding: 15px; text-align: center; }
 
-header p {
-    font-size: 1.1rem;
-    color: var(--color-acento);
-}
+.menu-navegacion a { color: white; margin: 15px; text-decoration: none; }
 
-/* ==========================================================================
-   NAVBAR (Barra de Navegación)
-   ========================================================================== */
-.navbar {
-    background-color: var(--color-primario) !important;
-    border-bottom: 3px solid var(--color-secundario);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-}
+.btn-personalizado { background-color: #6691ff; color: white; border: none; }
 
-.navbar-brand {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #ffffff !important;
-}
-
-.nav-link {
-    font-weight: 400;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.8) !important;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-/* Animación de línea inferior al pasar el mouse por el menú */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 2px;
-    left: 10%;
-    background-color: var(--color-acento);
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 80%;
-}
-
-.nav-link:hover {
-    color: #ffffff !important;
-}
-
-/* ==========================================================================
-   SECCIONES Y TARJETAS (Cards / Sections)
-   ========================================================================== */
-section, aside {
-    background-color: var(--color-tarjeta) !important;
-    border: none !important;
-    border-radius: 12px !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Títulos de las secciones */
-h2, h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--color-primario);
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-}
-
-/* Línea decorativa debajo de los títulos h2 */
-h2::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--color-secundario);
-    border-radius: 2px;
-}
-
-/* Centrar la línea decorativa solo en la sección de inicio */
-#inicio h2::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Efecto sutil al pasar el mouse sobre las secciones principales */
-section:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
-}
-
-/* ==========================================================================
-   BOTONES Y ELEMENTOS DE FORMULARIO
-   ========================================================================== */
-.btn-danger {
-    background-color: var(--color-secundario) !important;
-    border-color: var(--color-secundario) !important;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease !important;
-}
-
-.btn-danger:hover {
-    background-color: #922b3e !important;
-    border-color: #922b3e !important;
-    box-shadow: 0 4px 10px rgba(179, 57, 81, 0.3);
-}
-
-.btn-dark {
-    background-color: var(--color-primario) !important;
-    border-color: var(--color-primario) !important;
-}
-
-.btn-dark:hover {
-    background-color: #1a1a1a !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Estilos para las cajas de texto e inputs */
-.form-control, .form-select {
-    border: 1px solid #e1e1e1;
-    border-radius: 6px;
-    padding: 0.55rem 0.75rem;
-    background-color: #fcfcfc;
-    transition: all 0.2s ease;
-}
-
-.form-control:focus, .form-select:focus {
-    border-color: var(--color-secundario);
-    box-shadow: 0 0 0 0.25rem rgba(179, 57, 81, 0.15);
-    background-color: #ffffff;
-}
-
-/* ==========================================================================
-   ELEMENTOS DINÁMICOS (Tarjetas generadas por JS)
-   ========================================================================== */
-#lista-productos .card {
-    border-left: 4px solid var(--color-secundario) !important;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    background-color: #fff;
-    border-radius: 8px;
-    transition: transform 0.2s;
-}
-
-#lista-productos .card:hover {
-    transform: scale(1.02);
-}
-
-.badge.bg-danger {
-    background-color: var(--color-secundario) !important;
-}
-
-/* ==========================================================================
-   IMÁGENES Y MULTIMEDIA
-   ========================================================================== */
-img {
-    transition: transform 0.4s ease;
-}
-
-img:hover {
-    transform: scale(1.03);
-}
-
-.video-sin-borde {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* ==========================================================================
-   FOOTER (Pie de página)
-   ========================================================================== */
-footer {
-    background-color: var(--color-primario) !important;
-    border-top: 4px solid var(--color-secundario);
-    color: rgba(255, 255, 255, 0.7) !important;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+.footer-final { background-color: #4b0082; }
+.btn-eliminar {
+    margin-left: 10px;
 }
