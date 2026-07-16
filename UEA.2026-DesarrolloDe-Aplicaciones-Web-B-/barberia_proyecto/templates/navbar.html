@@ -1,0 +1,24 @@
+<!-- ============================================================
+     FRAGMENTO: NAVBAR (MENÚ)
+     Igual que el header, este menú es idéntico en todas las páginas
+     del sitio y en una plantilla real formaría parte de base.html.
+     Se inyecta en index.html mediante fetch() en
+     <div id="nav-placeholder">.
+============================================================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+    <div class="container justify-content-center">
+        <a class="navbar-brand text-warning fw-bold mx-auto mx-lg-0" href="#">StyleCare</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav text-center">
+                <li class="nav-item"><a class="nav-link text-white mx-2" href="#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link text-white mx-2" href="#quienes">Quiénes Somos</a></li>
+                <li class="nav-item"><a class="nav-link text-white mx-2" href="#servicios">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link text-white mx-2" href="#precios">Precios</a></li>
+                <li class="nav-item"><a class="nav-link text-white mx-2" href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
